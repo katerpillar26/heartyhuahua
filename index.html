@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambi's Heart - Our Brave Little Chihuahua</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #d63031;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            color: #636e72;
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        nav {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .nav-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 0 10px;
+            background: #d63031;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(214, 48, 49, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: #74b9ff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(116, 185, 255, 0.4);
+        }
+
+        .nav-btn.active {
+            background: #74b9ff;
+            transform: translateY(-2px);
+        }
+
+        .page {
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .dog-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            border: 8px solid #d63031;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .story-card {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-card h3 {
+            color: #dc2626;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .heart-section {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            border-left: 5px solid #3b82f6;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .resource-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #0ea5e9;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-card h3 {
+            color: #0369a1;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resource-link {
+            display: inline-block;
+            color: #0ea5e9;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background: rgba(14, 165, 233, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            background: #0ea5e9;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .emergency-section {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border: 2px solid #ef4444;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .emergency-section h3 {
+            color: #dc2626;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .paw-print {
+            font-size: 1.2em;
+            color: #d63031;
+            margin-right: 8px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            color: #636e72;
+        }
+
+        @media (max-width: 768px) {
+            .story-section {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .dog-photo {
+                width: 200px;
+                height: 200px;
+                font-size: 3em;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .page {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💖 Bambi's Heart 💖</h1>
+            <p class="subtitle">A brave little chihuahua with the biggest heart</p>
+        </header>
+
+        <nav>
+            <a href="#" class="nav-btn active" onclick="showPage('about')">About Bambi</a>
+            <a href="#" class="nav-btn" onclick="showPage('resources')">Heart Health Resources</a>
+        </nav>
+
+        <!-- About Bambi Page -->
+        <div id="about" class="page active">
+            <div class="hero-section">
+                <div class="dog-photo">
+                    🐕
+                </div>
+                <h2 style="color: #d63031; font-size: 2.5em; margin-bottom: 20px;">Meet Bambi</h2>
+                <p style="font-size: 1.3em; color: #636e72; font-style: italic;">Our courageous little warrior with a heart of gold</p>
+            </div>
+
+            <div class="story-section">
+                <div class="story-card">
+                    <h3><span class="paw-print">🐾</span>Bambi's Story</h3>
+                    <p>Bambi is our beloved chihuahua who has taught us so much about courage, love, and resilience. Despite facing heart challenges, Bambi approaches each day with boundless enthusiasm and joy. This little warrior has shown us that the size of your heart matters so much more than the size of your body.</p>
+                </div>
+                
+                <div class="story-card">
+                    <h3><span class="paw-print">🐾</span>What Makes Bambi Special</h3>
+                    <p>Bambi loves morning walks, sunny nap spots, and giving the gentlest kisses. Even with heart condition considerations, Bambi finds ways to play, love, and bring happiness to everyone around. This website is our way of sharing Bambi's journey and helping other pet parents navigate similar experiences.</p>
+                </div>
+            </div>
+
+            <div class="heart-section">
+                <h3 style="color: #3b82f6; font-size: 1.8em; margin-bottom: 20px;">💙 Living with Heart Conditions</h3>
+                <p style="font-size: 1.1em;">Bambi's heart condition diagnosis initially felt overwhelming, but we've learned that with proper care, monitoring, and lots of love, dogs with heart conditions can still live fulfilling, happy lives. Every day with Bambi is a gift, and we're committed to making each one count.</p>
+                <p style="margin-top: 15px; font-style: italic;">"The best therapist has fur and four legs." - Unknown</p>
+            </div>
+        </div>
+
+        <!-- Resources Page -->
+        <div id="resources" class="page">
+            <h2 style="color: #0369a1; font-size: 2.5em; text-align: center; margin-bottom: 30px;">Heart Health Resources</h2>
+            <p style="text-align: center; font-size: 1.2em; color: #636e72; margin-bottom: 40px;">Helpful information and resources for pet parents dealing with canine heart conditions</p>
+
+            <div class="emergency-section">
+                <h3>🚨 Emergency Signs to Watch For</h3>
+                <ul style="margin-left: 20px; color: #dc2626;">
+                    <li>Difficulty breathing or rapid breathing</li>
+                    <li>Excessive coughing, especially at night</li>
+                    <li>Collapse or fainting episodes</li>
+                    <li>Blue or pale gums</li>
+                    <li>Extreme lethargy or weakness</li>
+                </ul>
+                <p style="margin-top: 15px; font-weight: bold;">If you notice any of these signs, contact your veterinarian immediately!</p>
+            </div>
+
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>🏥 Veterinary Cardiology</h3>
+                    <p>Find board-certified veterinary cardiologists in your area. These specialists can provide advanced diagnostic testing and treatment options for heart conditions.</p>
+                    <a href="#" class="resource-link">Find a Cardiologist</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>💊 Medication Management</h3>
+                    <p>Learn about common heart medications for dogs, proper dosing schedules, and what to do if you miss a dose. Always consult your vet before making changes.</p>
+                    <a href="#" class="resource-link">Medication Guide</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🍽️ Heart-Healthy Diet</h3>
+                    <p>Nutrition plays a crucial role in managing heart conditions. Low-sodium diets and proper portion control can make a significant difference.</p>
+                    <a href="#" class="resource-link">Diet Guidelines</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>🏃‍♂️ Exercise Guidelines</h3>
+                    <p>Safe exercise recommendations for dogs with heart conditions. Learn how to keep your pet active while protecting their cardiovascular health.</p>
+                    <a href="#" class="resource-link">Exercise Tips</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>📚 Educational Resources</h3>
+                    <p>Reputable veterinary websites, research papers, and educational materials about canine heart disease from trusted sources.</p>
+                    <a href="#" class="resource-link">Learn More</a>
+                </div>
+
+                <div class="resource-card">
+                    <h3>👥 Support Communities</h3>
+                    <p>Connect with other pet parents who understand the journey. Online forums and support groups can provide emotional support and practical advice.</p>
+                    <a href="#" class="resource-link">Join Community</a>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 30px; border-radius: 15px; margin: 40px 0; border-left: 4px solid #16a34a;">
+                <h3 style="color: #15803d; margin-bottom: 15px;">💚 Quality of Life Tips</h3>
+                <ul style="margin-left: 20px; color: #166534;">
+                    <li>Maintain regular veterinary checkups and monitoring</li>
+                    <li>Create a calm, stress-free environment</li>
+                    <li>Monitor weight and body condition regularly</li>
+                    <li>Keep a daily log of symptoms and behavior</li>
+                    <li>Ensure adequate rest and comfortable sleeping areas</li>
+                    <li>Show lots of love and patience - emotional wellbeing matters too!</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>Made with 💖 for Bambi and all the brave little hearts out there</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Always consult with your veterinarian for professional medical advice</p>
+        </footer>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Remove active class from all nav buttons
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Add active class to clicked nav button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
