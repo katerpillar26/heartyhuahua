@@ -1,384 +1,954 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bambi's Heart - Our Brave Little Chihuahua</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bambi's Heart - Our Brave Little Chihuahua</title>
+	<style>
+    	* {
+        	margin: 0;
+        	padding: 0;
+        	box-sizing: border-box;
+    	}
 
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
-            min-height: 100vh;
-        }
+    	body {
+        	font-family: 'Georgia', serif;
+        	line-height: 1.6;
+        	color: #333;
+        	background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+        	min-height: 100vh;
+    	}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    	.container {
+        	max-width: 1200px;
+        	margin: 0 auto;
+        	padding: 20px;
+    	}
 
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
+    	header {
+        	text-align: center;
+        	margin-bottom: 40px;
+        	background: rgba(255, 255, 255, 0.9);
+        	padding: 30px;
+        	border-radius: 20px;
+        	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    	}
 
-        h1 {
-            color: #d63031;
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    	h1 {
+        	color: #d63031;
+        	font-size: 3em;
+        	margin-bottom: 10px;
+        	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    	}
 
-        .subtitle {
-            color: #636e72;
-            font-size: 1.2em;
-            font-style: italic;
-        }
+    	.subtitle {
+        	color: #636e72;
+        	font-size: 1.2em;
+        	font-style: italic;
+    	}
 
-        nav {
-            margin: 30px 0;
-            text-align: center;
-        }
+    	nav {
+        	margin: 30px 0;
+        	text-align: center;
+        	position: relative;
+    	}
 
-        .nav-btn {
-            display: inline-block;
-            padding: 12px 25px;
-            margin: 0 10px;
-            background: #d63031;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(214, 48, 49, 0.3);
-        }
+    	.nav-container {
+        	display: inline-block;
+        	position: relative;
+    	}
 
-        .nav-btn:hover {
-            background: #74b9ff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(116, 185, 255, 0.4);
-        }
+    	.nav-btn {
+        	display: inline-block;
+        	padding: 12px 25px;
+        	margin: 0 10px;
+        	background: #d63031;
+        	color: white;
+        	text-decoration: none;
+        	border-radius: 25px;
+        	transition: all 0.3s ease;
+        	font-weight: bold;
+        	box-shadow: 0 5px 15px rgba(214, 48, 49, 0.3);
+        	cursor: pointer;
+    	}
 
-        .nav-btn.active {
-            background: #74b9ff;
-            transform: translateY(-2px);
-        }
+    	.nav-btn:hover {
+        	transform: translateY(-2px);
+    	}
 
-        .page {
-            display: none;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            margin-bottom: 30px;
-        }
+    	.nav-btn.active {
+        	transform: translateY(-2px);
+    	}
 
-        .page.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in;
-        }
+    	.nav-btn.about-btn {
+        	background: #d63031;
+        	box-shadow: 0 5px 15px rgba(214, 48, 49, 0.3);
+    	}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    	.nav-btn.about-btn:hover {
+        	background: #d63031;
+        	box-shadow: 0 8px 25px rgba(214, 48, 49, 0.4);
+    	}
 
-        .hero-section {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    	.nav-btn.about-btn.active {
+        	background: #d63031;
+    	}
 
-        .dog-photo {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            margin: 0 auto 30px;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4em;
-            border: 8px solid #d63031;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
+    	.nav-btn.resources-btn {
+        	background: #0ea5e9;
+        	box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+    	}
 
-        .story-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin: 40px 0;
-        }
+    	.nav-btn.resources-btn:hover {
+        	background: #0369a1;
+        	box-shadow: 0 8px 25px rgba(3, 105, 161, 0.4);
+    	}
 
-        .story-card {
-            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
+    	.nav-btn.resources-btn.active {
+        	background: #0369a1;
+    	}
 
-        .story-card h3 {
-            color: #dc2626;
-            margin-bottom: 15px;
-            font-size: 1.5em;
-        }
+    	.nav-btn.support-btn {
+        	background: #8b5cf6;
+        	box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+    	}
 
-        .heart-section {
-            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 30px 0;
-            text-align: center;
-            border-left: 5px solid #3b82f6;
-        }
+    	.nav-btn.support-btn:hover {
+        	background: #7c3aed;
+        	box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+    	}
 
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
+    	.nav-btn.support-btn.active {
+        	background: #7c3aed;
+    	}
 
-        .resource-card {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid #0ea5e9;
-        }
+    	.dropdown {
+        	position: relative;
+        	display: inline-block;
+    	}
 
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
+    	.dropdown-content {
+        	display: none;
+        	position: absolute;
+        	top: 100%;
+        	left: 50%;
+        	transform: translateX(-50%);
+        	background: white;
+        	min-width: 250px;
+        	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        	border-radius: 15px;
+        	z-index: 1000;
+        	margin-top: 5px;
+        	overflow: hidden;
+        	opacity: 0;
+        	transition: opacity 0.3s ease, visibility 0.3s ease;
+        	visibility: hidden;
+    	}
 
-        .resource-card h3 {
-            color: #0369a1;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    	.dropdown:hover .dropdown-content {
+        	display: block;
+        	opacity: 1;
+        	visibility: visible;
+    	}
 
-        .resource-link {
-            display: inline-block;
-            color: #0ea5e9;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-            padding: 8px 15px;
-            background: rgba(14, 165, 233, 0.1);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
+    	.dropdown-content::before {
+        	content: '';
+        	position: absolute;
+        	top: -10px;
+        	left: 0;
+        	right: 0;
+        	height: 10px;
+        	background: transparent;
+    	}
 
-        .resource-link:hover {
-            background: #0ea5e9;
-            color: white;
-            transform: translateY(-2px);
-        }
+    	.dropdown-item {
+        	display: block;
+        	padding: 12px 20px;
+        	color: #333;
+        	text-decoration: none;
+        	transition: background 0.3s ease;
+        	border-bottom: 1px solid #f0f0f0;
+    	}
 
-        .emergency-section {
-            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
-            border: 2px solid #ef4444;
-            border-radius: 15px;
-            padding: 25px;
-            margin: 30px 0;
-        }
+    	.dropdown-item:last-child {
+        	border-bottom: none;
+    	}
 
-        .emergency-section h3 {
-            color: #dc2626;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-        }
+    	.dropdown-item:hover {
+        	background: #f8f9fa;
+        	color: #d63031;
+    	}
 
-        .paw-print {
-            font-size: 1.2em;
-            color: #d63031;
-            margin-right: 8px;
-        }
+    	.page {
+        	display: none;
+        	background: rgba(255, 255, 255, 0.95);
+        	padding: 40px;
+        	border-radius: 20px;
+        	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        	margin-bottom: 30px;
+    	}
 
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            color: #636e72;
-        }
+    	.page.active {
+        	display: block;
+        	animation: fadeIn 0.5s ease-in;
+    	}
 
-        @media (max-width: 768px) {
-            .story-section {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 2em;
-            }
-            
-            .dog-photo {
-                width: 200px;
-                height: 200px;
-                font-size: 3em;
-            }
-            
-            .container {
-                padding: 10px;
-            }
-            
-            .page {
-                padding: 20px;
-            }
-        }
-    </style>
+    	@keyframes fadeIn {
+        	from { opacity: 0; transform: translateY(20px); }
+        	to { opacity: 1; transform: translateY(0); }
+    	}
+
+    	.hero-section {
+        	text-align: center;
+        	margin-bottom: 40px;
+    	}
+
+    	.dog-photo {
+        	width: 300px;
+        	height: 300px;
+        	border-radius: 50%;
+        	margin: 0 auto 30px;
+        	background: #ddd;
+        	display: flex;
+        	align-items: center;
+        	justify-content: center;
+        	font-size: 4em;
+        	border: 8px solid #d63031;
+        	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    	}
+
+    	.story-section {
+        	display: grid;
+        	grid-template-columns: 1fr 1fr;
+        	gap: 40px;
+        	margin: 40px 0;
+    	}
+
+    	.story-card {
+        	background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+        	padding: 30px;
+        	border-radius: 15px;
+        	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    	}
+
+    	.story-card h3 {
+        	color: #dc2626;
+        	margin-bottom: 15px;
+        	font-size: 1.5em;
+    	}
+
+    	.heart-section {
+        	background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        	padding: 30px;
+        	border-radius: 15px;
+        	margin: 30px 0;
+        	text-align: center;
+        	border-left: 5px solid #3b82f6;
+    	}
+
+    	.emergency-section {
+        	background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+        	border: 2px solid #ef4444;
+        	border-radius: 15px;
+        	padding: 25px;
+        	margin: 30px 0;
+    	}
+
+    	.emergency-section h3 {
+        	color: #dc2626;
+        	margin-bottom: 15px;
+        	font-size: 1.4em;
+    	}
+
+    	.resources-grid {
+        	display: grid;
+        	grid-template-columns: 1fr 1fr;
+        	gap: 25px;
+        	margin: 30px 0;
+    	}
+
+    	.resources-grid > div:nth-child(5) {
+        	grid-column: 1 / -1;
+        	max-width: calc(50% - 12.5px);
+        	margin: 0 auto;
+    	}
+
+    	.resource-card {
+        	background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        	padding: 25px;
+        	border-radius: 15px;
+        	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        	transition: transform 0.3s ease, box-shadow 0.3s ease;
+        	border-left: 4px solid #0ea5e9;
+        	cursor: pointer;
+    	}
+
+    	.resource-card:hover {
+        	transform: translateY(-5px);
+        	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    	}
+
+    	.resource-card h3 {
+        	color: #0369a1;
+        	margin-bottom: 15px;
+        	display: flex;
+        	align-items: center;
+        	gap: 10px;
+    	}
+
+    	.resource-link {
+        	display: inline-block;
+        	color: #0ea5e9;
+        	text-decoration: none;
+        	font-weight: bold;
+        	margin-top: 10px;
+        	padding: 8px 15px;
+        	background: rgba(14, 165, 233, 0.1);
+        	border-radius: 20px;
+        	transition: all 0.3s ease;
+    	}
+
+    	.resource-link:hover {
+        	background: #0ea5e9;
+        	color: white;
+        	transform: translateY(-2px);
+    	}
+
+    	.paw-print {
+        	font-size: 1.2em;
+        	color: #d63031;
+        	margin-right: 8px;
+    	}
+
+    	.bottom-banner {
+        	text-align: center;
+        	margin-top: 50px;
+        	padding: 30px;
+        	background: rgba(255, 255, 255, 0.9);
+        	border-radius: 20px;
+        	color: #636e72;
+    	}
+
+    	.support-section {
+        	background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+        	padding: 30px;
+        	border-radius: 15px;
+        	margin: 40px 0;
+        	border-left: 4px solid #8b5cf6;
+        	text-align: center;
+    	}
+
+    	.donate-btn {
+        	background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        	color: white;
+        	border: none;
+        	padding: 12px 30px;
+        	border-radius: 25px;
+        	font-size: 1.1em;
+        	font-weight: bold;
+        	cursor: pointer;
+        	box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+        	transition: all 0.3s ease;
+    	}
+
+    	.donate-btn:hover {
+        	transform: translateY(-2px);
+        	box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+    	}
+
+    	.cornell-link {
+        	color: #dc2626;
+        	text-decoration: none;
+        	font-weight: bold;
+    	}
+
+    	.cornell-link:hover {
+        	text-decoration: underline;
+    	}
+
+    	.insurance-content, .schedule-content {
+        	background: white;
+        	padding: 30px;
+        	border-radius: 15px;
+        	margin: 20px 0;
+        	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    	}
+
+    	.schedule-template {
+        	background: #f8f9fa;
+        	border: 2px solid #dee2e6;
+        	border-radius: 10px;
+        	padding: 20px;
+        	margin: 20px 0;
+        	font-family: 'Courier New', monospace;
+    	}
+
+    	@media (max-width: 768px) {
+        	.story-section {
+            	grid-template-columns: 1fr;
+        	}
+       	 
+        	.resources-grid {
+            	grid-template-columns: 1fr;
+        	}
+       	 
+        	.resources-grid > div:nth-child(5) {
+            	grid-column: unset;
+            	max-width: unset;
+            	margin: unset;
+        	}
+       	 
+        	h1 {
+            	font-size: 2em;
+        	}
+       	 
+        	.dog-photo {
+            	width: 200px;
+            	height: 200px;
+            	font-size: 3em;
+        	}
+       	 
+        	.container {
+            	padding: 10px;
+        	}
+       	 
+        	.page {
+            	padding: 20px;
+        	}
+
+        	.dropdown-content {
+            	position: fixed;
+            	left: 10px;
+            	right: 10px;
+            	transform: none;
+            	min-width: unset;
+        	}
+    	}
+	</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>💖 Bambi's Heart 💖</h1>
-            <p class="subtitle">A brave little chihuahua with the biggest heart</p>
-        </header>
+	<div class="container">
+    	<header>
+        	<h1>💖 Hearty Hua Hua 💖</h1>
+        	<p class="subtitle">Dedicated to Bambi, our Hearty Hua Hua</p>
+        	<p class="subtitle" style="margin-top: 5px;">A brave little chihuahua with the biggest heart</p>
+    	</header>
 
-        <nav>
-            <a href="#" class="nav-btn active" onclick="showPage('about')">About Bambi</a>
-            <a href="#" class="nav-btn" onclick="showPage('resources')">Heart Health Resources</a>
-        </nav>
+    	<nav>
+        	<a href="#" class="nav-btn about-btn active" onclick="showPage('about'); return false;">About Bambi</a>
+        	<div class="dropdown">
+            	<a href="#" class="nav-btn resources-btn" onclick="showPage('resources'); return false;">Health Resources</a>
+            	<div class="dropdown-content">
+                	<a href="#" class="dropdown-item" onclick="showPage('insurance'); return false;">🛡️ Pet Insurance Guide</a>
+                	<a href="#" class="dropdown-item" onclick="showPage('schedule'); return false;">📅 Medicine Schedule Template</a>
+                	<a href="#" class="dropdown-item" onclick="showPage('pyometra'); return false;">⚠️ Pyometra Awareness</a>
+                	<a href="#" class="dropdown-item" onclick="showPage('aftercare'); return false;">💊 Post-Surgery Care</a>
+                	<a href="#" class="dropdown-item" onclick="showPage('heartmurmur'); return false;">💙 Heart Murmur & Enlarged Heart</a>
+            	</div>
+        	</div>
+        	<a href="#" class="nav-btn support-btn" onclick="showPage('support'); return false;">Support</a>
+    	</nav>
 
-        <!-- About Bambi Page -->
-        <div id="about" class="page active">
-            <div class="hero-section">
-                <div class="dog-photo">
-                    🐕
-                </div>
-                <h2 style="color: #d63031; font-size: 2.5em; margin-bottom: 20px;">Meet Bambi</h2>
-                <p style="font-size: 1.3em; color: #636e72; font-style: italic;">Our courageous little warrior with a heart of gold</p>
-            </div>
+    	<!-- About Bambi Page -->
+    	<div id="about" class="page active">
+        	<div class="hero-section">
+            	<div class="dog-photo">
+                	<img src="bambi-photo.jpg" alt="Bambi, our Hearty Hua Hua" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" onerror="this.style.display='none'; this.parentElement.innerHTML='🐕';">
+            	</div>
+            	<h2 style="color: #d63031; font-size: 2.5em; margin-bottom: 20px;">Meet Bambi</h2>
+            	<p style="font-size: 1.3em; color: #636e72; font-style: italic;">Our courageous little warrior with a heart of gold</p>
+        	</div>
 
-            <div class="story-section">
-                <div class="story-card">
-                    <h3><span class="paw-print">🐾</span>Bambi's Story</h3>
-                    <p>Bambi is our beloved chihuahua who has taught us so much about courage, love, and resilience. Despite facing heart challenges, Bambi approaches each day with boundless enthusiasm and joy. This little warrior has shown us that the size of your heart matters so much more than the size of your body.</p>
-                </div>
-                
-                <div class="story-card">
-                    <h3><span class="paw-print">🐾</span>What Makes Bambi Special</h3>
-                    <p>Bambi loves morning walks, sunny nap spots, and giving the gentlest kisses. Even with heart condition considerations, Bambi finds ways to play, love, and bring happiness to everyone around. This website is our way of sharing Bambi's journey and helping other pet parents navigate similar experiences.</p>
-                </div>
-            </div>
+        	<div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 30px; border-radius: 15px; margin: 40px 0; text-align: center; border-left: 5px solid #f59e0b;">
+            	<h3 style="color: #92400e; font-size: 1.8em; margin-bottom: 20px;">💛 Hearty Hua Hua</h3>
+            	<p style="font-size: 1.1em; color: #78350f;">This is a special term we use for our beloved Bambi. She has her heart murmur, but she has always been hearty and full of life. Sometimes when she breathes, she makes a "HHH" sound, which just so happens to be the abbreviation of Hearty Hua Hua (HHH). This page is dedicated to her, and we love her so much!</p>
+        	</div>
 
-            <div class="heart-section">
-                <h3 style="color: #3b82f6; font-size: 1.8em; margin-bottom: 20px;">💙 Living with Heart Conditions</h3>
-                <p style="font-size: 1.1em;">Bambi's heart condition diagnosis initially felt overwhelming, but we've learned that with proper care, monitoring, and lots of love, dogs with heart conditions can still live fulfilling, happy lives. Every day with Bambi is a gift, and we're committed to making each one count.</p>
-                <p style="margin-top: 15px; font-style: italic;">"The best therapist has fur and four legs." - Unknown</p>
-            </div>
-        </div>
+        	<div class="story-section">
+            	<div class="story-card">
+                	<h3><span class="paw-print">🐾</span>How Bambi Came Into Our Lives</h3>
+                	<p>We originally got Bambi when she was already a few years old from owners who couldn't take care of her any longer. She is the greatest gift that just fell into our lap - the best thing in our lives. Bambi went to university with us and became our very best friend. We didn't even know her breed until later on, when we discovered she's 33% chihuahua, a breed prone to heart murmurs, enlarged hearts, and other heart problems.</p>
+            	</div>
+           	 
+            	<div class="story-card">
+                	<h3><span class="paw-print">🐾</span>The Heart Murmur Challenge</h3>
+                	<p>Bambi had a previous heart murmur rated 4/5, so spaying was advised against by our vet. Following professional medical advice, we chose not to spay her, not knowing that pyometra would become a risk we'd face. At 9 years old, this put her in a particularly concerning age range, as the risk of pyometra increases significantly with age in unspayed female dogs. This decision, made with the best intentions for her heart health, would later lead to an emergency that changed everything.</p>
+            	</div>
+        	</div>
 
-        <!-- Resources Page -->
-        <div id="resources" class="page">
-            <h2 style="color: #0369a1; font-size: 2.5em; text-align: center; margin-bottom: 30px;">Heart Health Resources</h2>
-            <p style="text-align: center; font-size: 1.2em; color: #636e72; margin-bottom: 40px;">Helpful information and resources for pet parents dealing with canine heart conditions</p>
+        	<div class="emergency-section">
+            	<h3 style="color: #dc2626; font-size: 1.8em; margin-bottom: 20px;">⚠️ The Emergency That Changed Everything</h3>
+            	<p style="font-size: 1.1em; margin-bottom: 15px;">One Friday afternoon after work, we were taking Bambi to the vet. This would be the second day she hadn't been eating and was less energetic than usual. What we thought might be a minor illness or behavior due to old age turned out to be a life-threatening emergency.</p>
+            	<p style="margin-bottom: 20px;"><strong>Bambi was diagnosed with pyometra and uterine tumors, and mammary masses.</strong></p>
+           	 
+            	<div style="background: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #dc2626;">
+                	<h4 style="color: #000; margin-bottom: 10px; font-weight: bold;">What is Pyometra?</h4>
+                	<p style="margin-bottom: 15px;">Pyometra is a serious and potentially life-threatening infection of the uterus that causes it to fill with bacteria and pus. Pyometra, a serious uterine infection in dogs, can be a precursor to developing uterine tumors, including cancer.</p>
+               	 
+                	<p style="margin-bottom: 10px; color: #000; font-weight: bold;">Link between Pyometra and Tumors:</p>
+                	<p style="margin-bottom: 15px;">Pyometra can create a favorable environment for uterine tumors to develop. The chronic inflammation and infection associated with pyometra can lead to changes in uterine cells, potentially increasing the risk of tumor formation.</p>
+               	 
+                	<p style="margin-bottom: 10px; color: #000; font-weight: bold;">Uterine Tumors:</p>
+                	<p style="margin-bottom: 15px;">These are abnormal growths of tissue in the uterus, and can be benign (non-cancerous) or malignant (cancerous).</p>
+               	 
+                	<p style="margin-bottom: 10px; color: #000; font-weight: bold;">Mammary Tumors:</p>
+                	<p style="margin-bottom: 20px;">Mammary tumors in dogs, also known as breast cancer, are a common type of cancer, particularly in unspayed female dogs. These tumors appear as lumps in the mammary glands, which are located around the nipples. While some lumps are benign, others can be malignant and potentially spread to other parts of the body.</p>
+               	 
+                	<p style="font-size: 0.9em;"><strong>Learn More:</strong><br>
+                	<a href="https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/pyometra" class="cornell-link" target="_blank">Cornell University - Pyometra</a><br>
+                	<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10647846/" class="cornell-link" target="_blank">NCBI Research on Pyometra</a><br>
+                	<a href="https://vcahospitals.com/know-your-pet/uterine-vaginal-tumors#:~:text=Signs%20that%20your%20pet%20has%20a%20uterine,may%20also%20include%20increased%20drinking%20and%20urination." class="cornell-link" target="_blank">VCA - Uterine Tumors</a><br>
+                	<a href="https://www.bluecross.org.uk/advice/dog/health-and-injuries/breast-cancer-in-dogs" class="cornell-link" target="_blank">Blue Cross UK - Breast Cancer in Dogs</a><br>
+                	<a href="https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/mammary-cancer#:~:text=Common%20metastatic%20sites%20include:%20regional,Multiple%20mammary%20tumors%20are%20common" class="cornell-link" target="_blank">Cornell University - Mammary Cancer</a><br>
+                	<a href="https://vcahospitals.com/know-your-pet/mammary-tumors-in-dogs-malignant#:~:text=The%20most%20common%20clinical%20sign,them%20on%20a%20microscope%20slide." class="cornell-link" target="_blank">VCA - Malignant Mammary Tumors</a></p>
+            	</div>
 
-            <div class="emergency-section">
-                <h3>🚨 Emergency Signs to Watch For</h3>
-                <ul style="margin-left: 20px; color: #dc2626;">
-                    <li>Difficulty breathing or rapid breathing</li>
-                    <li>Excessive coughing, especially at night</li>
-                    <li>Collapse or fainting episodes</li>
-                    <li>Blue or pale gums</li>
-                    <li>Extreme lethargy or weakness</li>
-                </ul>
-                <p style="margin-top: 15px; font-weight: bold;">If you notice any of these signs, contact your veterinarian immediately!</p>
-            </div>
+            	<p style="margin-bottom: 15px;">Bambi underwent emergency surgery that same day. Her uterus was removed and was filled with pus. There were also tumors in her mammary glands that needed additional surgery, but not all the tumors could be removed since there wouldn't be enough skin left to close her up.</p>
+           	 
+            	<p style="font-style: italic; color: #dc2626;">This was a whirlwind of an experience. We felt so helpless, not being able to do anything else in this process. All we could do was hold her and FaceTime our grandma, who Bambi had also been a companion for, to say goodbye before handing her off to the vet tech to undergo surgery, not knowing what was going to happen to her.</p>
+        	</div>
 
-            <div class="resources-grid">
-                <div class="resource-card">
-                    <h3>🏥 Veterinary Cardiology</h3>
-                    <p>Find board-certified veterinary cardiologists in your area. These specialists can provide advanced diagnostic testing and treatment options for heart conditions.</p>
-                    <a href="#" class="resource-link">Find a Cardiologist</a>
-                </div>
+        	<div class="heart-section">
+            	<h3 style="color: #3b82f6; font-size: 1.8em; margin-bottom: 20px;">💙 Why We Created This Website</h3>
+            	<p style="font-size: 1.1em;">We want to spread awareness about these conditions and provide the resources we wish we had before all of this happened to Bambi, as well as resources we've developed afterwards. This website is our way of sharing Bambi's journey and helping other pet parents navigate similar experiences.</p>
+            	<p style="margin-top: 15px; font-style: italic;">"Every day with Bambi is a gift, and we're committed to making each one count."</p>
+        	</div>
 
-                <div class="resource-card">
-                    <h3>💊 Medication Management</h3>
-                    <p>Learn about common heart medications for dogs, proper dosing schedules, and what to do if you miss a dose. Always consult your vet before making changes.</p>
-                    <a href="#" class="resource-link">Medication Guide</a>
-                </div>
+        	<div class="support-section">
+            	<h3 style="color: #7c3aed; margin-bottom: 15px;">💜 Support Our Mission</h3>
+            	<p style="color: #6b46c1; margin-bottom: 20px;">If Bambi's story and these resources have helped you, consider supporting our efforts to help more pet families navigate these challenging experiences. All resources will be available for free as long as this site is up, but your support helps us continue developing and sharing these tools.</p>
+            	<a href="https://www.paypal.com/donate/?business=YOUR_PAYPAL_EMAIL&no_recurring=0&currency_code=USD" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white; text-decoration: none; padding: 12px 30px; border-radius: 25px; font-size: 1.1em; font-weight: bold; box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(139, 92, 246, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(139, 92, 246, 0.3)'">💖 Donate</a>
+            	<p style="font-size: 0.9em; color: #6b46c1; margin-top: 15px; font-style: italic;">Every contribution helps us develop more resources and support other pet families</p>
+        	</div>
+    	</div>
 
-                <div class="resource-card">
-                    <h3>🍽️ Heart-Healthy Diet</h3>
-                    <p>Nutrition plays a crucial role in managing heart conditions. Low-sodium diets and proper portion control can make a significant difference.</p>
-                    <a href="#" class="resource-link">Diet Guidelines</a>
-                </div>
+    	<!-- Health Resources Page -->
+    	<div id="resources" class="page">
+        	<h2 style="color: #0369a1; font-size: 2.5em; text-align: center; margin-bottom: 30px;">Health Resources</h2>
+        	<p style="text-align: center; font-size: 1.2em; color: #636e72; margin-bottom: 40px;">Helpful information and resources for pet parents dealing with canine health challenges</p>
 
-                <div class="resource-card">
-                    <h3>🏃‍♂️ Exercise Guidelines</h3>
-                    <p>Safe exercise recommendations for dogs with heart conditions. Learn how to keep your pet active while protecting their cardiovascular health.</p>
-                    <a href="#" class="resource-link">Exercise Tips</a>
-                </div>
+        	<div class="emergency-section">
+            	<h3>🚨 Emergency Signs to Watch For</h3>
+            	<ul style="margin-left: 20px; color: #dc2626;">
+                	<li>Difficulty breathing or rapid breathing</li>
+                	<li>Excessive coughing, especially at night</li>
+                	<li>Collapse or fainting episodes</li>
+                	<li>Blue or pale gums</li>
+                	<li>Extreme lethargy or weakness</li>
+                	<li>Loss of appetite for more than 24 hours</li>
+                	<li>Vomiting or diarrhea</li>
+                	<li>Unusual discharge</li>
+            	</ul>
+            	<p style="margin-top: 15px; font-weight: bold;">If you notice any of these signs, contact your veterinarian immediately!</p>
+        	</div>
 
-                <div class="resource-card">
-                    <h3>📚 Educational Resources</h3>
-                    <p>Reputable veterinary websites, research papers, and educational materials about canine heart disease from trusted sources.</p>
-                    <a href="#" class="resource-link">Learn More</a>
-                </div>
+        	<div class="resources-grid">
+            	<div class="resource-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-left: 4px solid #16a34a;" onclick="showPage('insurance')">
+                	<h3 style="color: #15803d;">🛡️ Pet Insurance Guide</h3>
+                	<p>Comprehensive pet insurance recommendations reviewed and vetted by our sister, who is a current vet tech. We know not everyone has access to veterinary professionals in their family, so we're sharing this valuable resource.</p>
+                	<a href="#" class="resource-link" style="background: rgba(22, 163, 74, 0.1); color: #16a34a;" onclick="showPage('insurance'); return false;">Read More</a>
+            	</div>
 
-                <div class="resource-card">
-                    <h3>👥 Support Communities</h3>
-                    <p>Connect with other pet parents who understand the journey. Online forums and support groups can provide emotional support and practical advice.</p>
-                    <a href="#" class="resource-link">Join Community</a>
-                </div>
-            </div>
+            	<div class="resource-card" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-left: 4px solid #d97706;" onclick="showPage('schedule')">
+                	<h3 style="color: #92400e;">📅 Medicine Schedule Template</h3>
+                	<p>A medication tracking template we developed while everything was going on during Bambi's recovery. We hope this could ease other families' tough times by helping you stay organized during difficult moments.</p>
+                	<a href="#" class="resource-link" style="background: rgba(217, 119, 6, 0.1); color: #d97706;" onclick="showPage('schedule'); return false;">Read More</a>
+            	</div>
 
-            <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 30px; border-radius: 15px; margin: 40px 0; border-left: 4px solid #16a34a;">
-                <h3 style="color: #15803d; margin-bottom: 15px;">💚 Quality of Life Tips</h3>
-                <ul style="margin-left: 20px; color: #166534;">
-                    <li>Maintain regular veterinary checkups and monitoring</li>
-                    <li>Create a calm, stress-free environment</li>
-                    <li>Monitor weight and body condition regularly</li>
-                    <li>Keep a daily log of symptoms and behavior</li>
-                    <li>Ensure adequate rest and comfortable sleeping areas</li>
-                    <li>Show lots of love and patience - emotional wellbeing matters too!</li>
-                </ul>
-            </div>
-        </div>
+            	<div class="resource-card" onclick="showPage('pyometra')">
+                	<h3>⚠️ Pyometra Awareness</h3>
+                	<p>Learn about pyometra symptoms, risk factors, and prevention. Early detection can be life-saving. Includes information from Cornell University College of Veterinary Medicine.</p>
+                	<a href="#" class="resource-link" onclick="showPage('pyometra'); return false;">Read More</a>
+            	</div>
 
-        <footer>
-            <p>Made with 💖 for Bambi and all the brave little hearts out there</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">Always consult with your veterinarian for professional medical advice</p>
-        </footer>
-    </div>
+            	<div class="resource-card" onclick="showPage('aftercare')">
+                	<h3>💊 Post-Surgery Care</h3>
+                	<p>Essential aftercare guidelines for dogs recovering from emergency surgery. Tips for monitoring healing, managing pain, and ensuring proper recovery.</p>
+                	<a href="#" class="resource-link" onclick="showPage('aftercare'); return false;">Read More</a>
+            	</div>
 
-    <script>
-        function showPage(pageId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
-            
-            // Remove active class from all nav buttons
-            const navBtns = document.querySelectorAll('.nav-btn');
-            navBtns.forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Add active class to clicked nav button
-            event.target.classList.add('active');
-        }
-    </script>
+            	<div class="resource-card" style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border-left: 4px solid #3b82f6;" onclick="showPage('heartmurmur')">
+                	<h3 style="color: #1d4ed8;">💙 Heart Murmur & Enlarged Heart</h3>
+                	<p>Comprehensive information about heart murmurs and enlarged hearts in dogs. Learn about grades, symptoms to monitor, and how to provide the best care for dogs with heart conditions.</p>
+                	<a href="#" class="resource-link" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;" onclick="showPage('heartmurmur'); return false;">Read More</a>
+            	</div>
+        	</div>
+
+        	<div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 30px; border-radius: 15px; margin: 40px 0; border-left: 4px solid #16a34a;">
+            	<h3 style="color: #15803d; margin-bottom: 15px;">💚 Quality of Life Tips</h3>
+            	<ul style="margin-left: 20px; color: #166534;">
+                	<li>Maintain regular veterinary checkups and monitoring</li>
+                	<li>Create a calm, stress-free environment</li>
+                	<li>Monitor weight and body condition regularly</li>
+                	<li>Keep a daily log of symptoms and behavior</li>
+                	<li>Ensure adequate rest and comfortable sleeping areas</li>
+                	<li>Show lots of love and patience - emotional wellbeing matters too!</li>
+            	</ul>
+        	</div>
+
+        	<div class="support-section">
+            	<h3 style="color: #7c3aed; margin-bottom: 15px;">💜 Support Our Mission</h3>
+            	<p style="color: #6b46c1; margin-bottom: 20px;">If Bambi's story and these resources have helped you, consider supporting our efforts to help more pet families navigate these challenging experiences. All resources will be available for free as long as this site is up, but your support helps us continue developing and sharing these tools.</p>
+            	<button class="donate-btn">💖 Donate</button>
+            	<p style="font-size: 0.9em; color: #6b46c1; margin-top: 15px; font-style: italic;">Every contribution helps us develop more resources and support other pet families</p>
+        	</div>
+    	</div>
+
+    	<!-- Pet Insurance Guide Page -->
+    	<div id="insurance" class="page">
+        	<h2 style="color: #15803d; font-size: 2.5em; text-align: center; margin-bottom: 30px;">🛡️ Pet Insurance Guide</h2>
+       	 
+        	<div class="insurance-content">
+            	<h3 style="color: #15803d; margin-bottom: 20px;">Why Pet Insurance Matters</h3>
+            	<p style="margin-bottom: 20px;">After Bambi's emergency surgery, we learned firsthand how quickly veterinary bills can add up. Pet insurance gives you peace of mind and will likely pay for itself after even a single accident. Pets love us unconditionally, so we should treat them like family.</p>
+           	 
+            	<h3 style="color: #15803d; margin-bottom: 20px;">Our Recommendation: <a href="https://www.aspcapetinsurance.com/pet-insurance-plan/" target="_blank" style="color: #15803d; text-decoration: underline;">ASPCA Pet Insurance</a></h3>
+            	<p style="margin-bottom: 15px;">This recommendation has been reviewed and vetted by our sister, who is a current vet tech. We know not everyone has access to veterinary professionals in their family or maybe access at all, so we're sharing this valuable resource. This isn't sponsored at all - it's what we've found and researched and what we personally use now for all of our pets. If you choose not to get ASPCA Pet Insurance, we highly recommend getting reliable and comprehensive insurance, although ASPCA also has flexible options as listed below.</p>
+           	 
+            	<div style="background: #f0fdf4; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #16a34a;">
+                	<h4 style="color: #15803d; margin-bottom: 15px;">ASPCA Pet Insurance Features:</h4>
+                	<ul style="color: #166534; margin-left: 20px;">
+                    	<li><strong>Flexible Options:</strong> Choose between comprehensive pet insurance or accident-only coverage</li>
+                    	<li><strong>Preventative Care Add-on:</strong> $10-15 additional coverage depending on your pet's age, breed, and other factors</li>
+                    	<li><strong>Transparent Pricing:</strong> All costs are quoted before checkout - no surprises</li>
+                    	<li><strong>Multi-Pet Discount:</strong> Save 10% for each additional pet (highly recommended if you have multiple pets)</li>
+                    	<li><strong>Peace of Mind:</strong> Focus on your pet's health, not the financial stress</li>
+                	</ul>
+            	</div>
+           	 
+            	<p style="text-align: center; margin: 20px 0; font-size: 1em; color: #15803d;"><strong>Link to ASPCA Pet Insurance:</strong> <a href="https://www.aspcapetinsurance.com/pet-insurance-plan/" target="_blank" style="color: #15803d;">https://www.aspcapetinsurance.com/pet-insurance-plan/</a></p>
+           	 
+            	<p style="font-style: italic; color: #166534; text-align: center; margin-top: 30px;">Remember: The best time to get pet insurance is before you need it. Bambi's emergency taught us that emergencies don't wait for convenient timing.</p>
+        	</div>
+    	</div>
+
+    	<!-- Medicine Schedule Template Page -->
+    	<div id="schedule" class="page">
+        	<h2 style="color: #92400e; font-size: 2.5em; text-align: center; margin-bottom: 30px;">📅 Medicine Schedule Template</h2>
+       	 
+        	<div class="schedule-content">
+            	<p style="margin-bottom: 20px; text-align: center; font-size: 1.1em;">We developed this template during Bambi's recovery when everything was overwhelming. Staying organized with medications helped reduce our stress during an already difficult time. We hope this can ease other families' tough times too.</p>
+           	 
+            	<p style="margin-bottom: 30px; font-size: 1em; line-height: 1.6; font-style: italic; color: #92400e; text-align: center;">💡 <strong>Tip:</strong> Times like this are tough, and we know our brain was scrambled, so filling out this information beforehand is really helpful.<br>Keep one by your pet's food/medicine area for easy daily tracking!</p>
+           	 
+            	<p style="margin-bottom: 30px; font-size: 1em; line-height: 1.6;">This template is designed to help you track all the important information during your pet's recovery. The "Vet Hospital" field is for where your pet had the operation, while "Primary Vet Hospital" is where you typically go for regular visits. Pets can be sent home with multiple medications after surgery, so it's important to track each one carefully. Daily observation of behaviors like eating, drinking, energy level, and bathroom habits helps monitor recovery progress. The emergency contacts section is helpful when giving this card to whoever is taking care of your pet - whether it's for a while, a quick trip to the store, or as a backup contact for your partner.</p>
+           	 
+            	<div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(217, 119, 6, 0.1); border-radius: 10px; border-left: 4px solid #d97706;">
+                	<h4 style="color: #92400e; margin-bottom: 15px;">📄 Download PDF Version</h4>
+                	<p style="margin-bottom: 15px; color: #78350f;">Get a printable PDF version of this medication schedule template</p>
+                	<a href="HeartyHuaHua-Medication-Schedule-Template.pdf" download="HeartyHuaHua-Medication-Schedule-Template.pdf" style="display: inline-block; background: linear-gradient(135deg, #d97706 0%, #92400e 100%); color: white; text-decoration: none; padding: 12px 25px; border-radius: 20px; font-weight: bold; box-shadow: 0 5px 15px rgba(217, 119, 6, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(217, 119, 6, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(217, 119, 6, 0.3)'">📥 Download PDF Template</a>
+            	</div>
+           	 
+            	<div class="schedule-template">
+                	<h3>🐾 ________________'s Medication Schedule</h3>
+                	<p><strong>Date Range:</strong> _____ to _____</p>
+                	<p><strong>Vet Hospital:</strong> _______________</p>
+                	<p><strong>Veterinarian Name:</strong> _______________</p>
+                	<p><strong>Phone Number:</strong> _______________</p>
+                	<br>
+                	<p><strong>Primary Vet Hospital:</strong> _______________</p>
+                	<p><strong>Veterinarian Name:</strong> _______________</p>
+                	<p><strong>Phone Number:</strong> _______________</p>
+               	 
+                	<hr style="margin: 20px 0;">
+               	 
+                	<h4>📋 Daily Medication Log</h4>
+                	<table style="width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.9em;">
+                    	<tr style="background: #e9ecef;">
+                        	<th style="border: 1px solid #dee2e6; padding: 6px; width: 12%;">Date</th>
+                        	<th style="border: 1px solid #dee2e6; padding: 6px; width: 22%;">Morning</th>
+                        	<th style="border: 1px solid #dee2e6; padding: 6px; width: 22%;">Afternoon</th>
+                        	<th style="border: 1px solid #dee2e6; padding: 6px; width: 22%;">Evening</th>
+                        	<th style="border: 1px solid #dee2e6; padding: 6px; width: 22%;">Notes</th>
+                    	</tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 1:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 2:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 3:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 4:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 5:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 6:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 7:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 8:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 9:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 10:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 11:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 12:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 13:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                    	<tr><td style="border: 1px solid #dee2e6; padding: 6px;">Day 14:<br>___/___</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">□ Med 1 □ Med 2 □ Med 3 □ Med 4 □ Med 5</td><td style="border: 1px solid #dee2e6; padding: 6px;">___________</td></tr>
+                	</table>
+               	 
+                	<h4>💊 Medication Details</h4>
+                	<p><strong>Medicine 1:</strong> _________________ | Dose: _______ | Frequency: _______</p>
+                	<p><strong>Medicine 2:</strong> _________________ | Dose: _______ | Frequency: _______</p>
+                	<p><strong>Medicine 3:</strong> _________________ | Dose: _______ | Frequency: _______</p>
+                	<p><strong>Medicine 4:</strong> _________________ | Dose: _______ | Frequency: _______</p>
+                	<p><strong>Medicine 5:</strong> _________________ | Dose: _______ | Frequency: _______</p>
+               	 
+                	<h4>📝 Daily Observation Checklist</h4>
+                	<p>□ Eating normally   □ Drinking water   □ Normal energy level</p>
+                	<p>□ Normal bathroom habits   □ Comfortable/not in pain</p>
+                	<p>□ Incision site looks good (if applicable)</p>
+               	 
+                	<h4>⚠️ Emergency Contact Information</h4>
+                	<p><strong>Contact 1:</strong> _________________ | Phone: _______</p>
+                	<p><strong>Contact 2:</strong> _________________ | Phone: _______</p>
+                	<p><strong>Poison Control:</strong> ASPCA Animal Poison Control: (888) 426-4435</p>
+            	</div>
+        	</div>
+    	</div>
+
+    	<!-- Pyometra Awareness Page -->
+    	<div id="pyometra" class="page">
+        	<h2 style="color: #dc2626; font-size: 2.5em; text-align: center; margin-bottom: 30px;">⚠️ Pyometra Awareness</h2>
+       	 
+        	<div class="emergency-section">
+            	<h3>What is Pyometra?</h3>
+            	<p style="font-style: italic; margin-bottom: 15px;">"Pyometra is a serious and potentially life-threatening infection of the uterus that causes it to fill with bacteria and pus. Many dogs with a pyometra have vaginal discharge and may feel very sick with a poor appetite, lethargy, vomiting and sometimes increased thirst or urination."</p>
+            	<p>- <a href="https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/pyometra" class="cornell-link" target="_blank">Cornell University College of Veterinary Medicine</a></p>
+        	</div>
+
+        	<div style="background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); padding: 30px; border-radius: 15px; margin: 30px 0; border-left: 4px solid #dc2626;">
+            	<h3 style="color: #dc2626; margin-bottom: 20px;">🚨 Warning Signs to Watch For</h3>
+            	<ul style="color: #dc2626; margin-left: 20px;">
+                	<li>Loss of appetite for more than 24 hours</li>
+                	<li>Lethargy or decreased energy</li>
+                	<li>Increased thirst and urination</li>
+                	<li>Vaginal discharge (may be pus-like or bloody)</li>
+                	<li>Vomiting</li>
+                	<li>Swollen or distended abdomen</li>
+                	<li>Fever</li>
+                	<li>Depression or unusual behavior</li>
+            	</ul>
+            	<p style="margin-top: 20px; font-weight: bold; color: #dc2626;">⚠️ If you notice any of these signs in an unspayed female dog, contact your veterinarian immediately!</p>
+        	</div>
+
+        	<div style="background: white; padding: 30px; border-radius: 15px; margin: 30px 0; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);">
+            	<h3 style="color: #dc2626; margin-bottom: 20px;">Risk Factors</h3>
+            	<ul style="margin-left: 20px;">
+                	<li><strong>Age:</strong> Risk increases with age, especially in dogs over 6 years old</li>
+                	<li><strong>Intact females:</strong> Only affects unspayed female dogs</li>
+                	<li><strong>Previous heat cycles:</strong> Risk increases with each heat cycle</li>
+                	<li><strong>Hormone treatments:</strong> Certain medications can increase risk</li>
+            	</ul>
+           	 
+            	<h3 style="color: #dc2626; margin: 30px 0 20px 0;">Treatment</h3>
+            	<p>Pyometra is a medical emergency that typically requires immediate surgery to remove the infected uterus (ovariohysterectomy). Early detection and treatment are crucial for the best outcomes.</p>
+           	 
+            	<h3 style="color: #dc2626; margin: 30px 0 20px 0;">Prevention</h3>
+            	<p>The only way to completely prevent pyometra is to spay your dog before their first heat cycle. However, some dogs may have other health conditions that make spaying risky - always consult with your veterinarian about the best approach for your individual pet.</p>
+        	</div>
+    	</div>
+
+    	<!-- Post-Surgery Care Page -->
+    	<div id="aftercare" class="page">
+        	<h2 style="color: #0369a1; font-size: 2.5em; text-align: center; margin-bottom: 30px;">💊 Post-Surgery Care</h2>
+       	 
+        	<div style="background: white; padding: 30px; border-radius: 15px; margin: 30px 0; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);">
+            	<h3 style="color: #0369a1; margin-bottom: 20px;">🏠 At-Home Recovery Guidelines</h3>
+           	 
+            	<h4 style="color: #0369a1; margin: 25px 0 15px 0;">Incision Care</h4>
+            	<ul style="margin-left: 20px;">
+                	<li>The <strong>Elizabethan (cone) collar</strong> is recommended and might be given after the visit so that the pet won't lick at the wound or open up stitches</li>
+                	<li>We personally recommend a <strong>dog surgery recovery suit</strong>, which is great since not only would it keep them from licking and opening up stitches, but could prevent infection since it provides a layer between them and the ground while they lay and recover</li>
+                	<li>Check the incision site daily for signs of infection</li>
+                	<li>Keep the area clean and dry</li>
+                	<li>No baths until cleared by your vet</li>
+            	</ul>
+           	 
+            	<h4 style="color: #0369a1; margin: 25px 0 15px 0;">Medication Management</h4>
+            	<ul style="margin-left: 20px;">
+                	<li>Give all medications exactly as prescribed - we have a <strong>medicine schedule template</strong> available to help you stay organized</li>
+                	<li>Complete the full course of antibiotics</li>
+                	<li>Never give human pain medications to pets</li>
+            	</ul>
+           	 
+            	<h4 style="color: #0369a1; margin: 25px 0 15px 0;">Activity Restrictions</h4>
+            	<ul style="margin-left: 20px;">
+                	<li>Limit exercise to short, leashed walks</li>
+                	<li>No running, jumping, or rough play</li>
+                	<li>Provide a quiet, comfortable recovery space</li>
+                	<li>Follow your vet's timeline for returning to normal activity</li>
+            	</ul>
+        	</div>
+
+        	<div class="emergency-section">
+            	<h3>🚨 When to Call Your Vet Immediately</h3>
+            	<ul style="margin-left: 20px; color: #dc2626;">
+                	<li>Incision opens up or appears infected (red, swollen, discharge)</li>
+                	<li>Excessive bleeding</li>
+                	<li>Vomiting or diarrhea</li>
+                	<li>Loss of appetite for more than 24 hours</li>
+                	<li>Difficulty breathing</li>
+                	<li>Extreme lethargy or weakness</li>
+                	<li>Pale gums</li>
+                	<li>Any behavior that seems "not right" for your pet</li>
+            	</ul>
+            	<p style="margin-top: 15px; font-weight: bold;">Trust your instincts - you know your pet best!</p>
+        	</div>
+
+        	<div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 30px; border-radius: 15px; margin: 40px 0; border-left: 4px solid #16a34a;">
+            	<h3 style="color: #15803d; margin-bottom: 15px;">💚 Supporting Emotional Recovery</h3>
+            	<ul style="margin-left: 20px; color: #166534;">
+                	<li>Provide lots of gentle attention and comfort</li>
+                	<li>Maintain familiar routines as much as possible</li>
+                	<li>Create a calm, stress-free environment</li>
+                	<li>Be patient - recovery takes time</li>
+                	<li>Celebrate small improvements</li>
+            	</ul>
+            	<p style="margin-top: 15px; font-style: italic; color: #166534;">Remember: Your love and presence are powerful healing tools too!</p>
+        	</div>
+    	</div>
+
+    	<!-- Heart Murmur & Enlarged Heart Page -->
+    	<div id="heartmurmur" class="page">
+        	<h2 style="color: #3b82f6; font-size: 2.5em; text-align: center; margin-bottom: 30px;">💙 Heart Murmur & Enlarged Heart Awareness</h2>
+       	 
+        	<div style="background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); padding: 30px; border-radius: 15px; margin: 30px 0; border-left: 4px solid #3b82f6;">
+            	<h3 style="color: #1d4ed8; margin-bottom: 20px;">What is a Heart Murmur?</h3>
+            	<p style="margin-bottom: 15px;">A heart murmur is an abnormal sound heard when listening to the heart with a stethoscope. It's caused by turbulent blood flow through the heart. Heart murmurs are graded on a scale of 1-6, with 1 being very soft and 6 being very loud. Like Bambi, many dogs can live normal lives with heart murmurs, but they require careful monitoring.</p>
+            	<p style="font-size: 0.9em;"><strong>Learn More:</strong>
+            	<a href="https://vcahospitals.com/know-your-pet/heart-murmurs-in-dogs#:~:text=The%20prognosis%20ranges%20from%20excellent,the%20prognosis%20is%20very%20good." class="cornell-link" target="_blank">VCA Animal Hospitals</a> |
+            	<a href="https://www.petmd.com/dog/conditions/cardiovascular/c_dg_heart_murmur" class="cornell-link" target="_blank">PetMD</a></p>
+        	</div>
+
+        	<div style="background: white; padding: 30px; border-radius: 15px; margin: 30px 0; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);">
+            	<h3 style="color: #3b82f6; margin-bottom: 20px;">Understanding Heart Murmur Grades</h3>
+            	<ul style="margin-left: 20px;">
+                	<li><strong>Grade 1:</strong> Very soft murmur, only heard in quiet conditions</li>
+                	<li><strong>Grade 2:</strong> Soft murmur, but easily heard with stethoscope</li>
+                	<li><strong>Grade 3:</strong> Moderate murmur</li>
+                	<li><strong>Grade 4:</strong> Loud murmur (like Bambi's) - often requires special considerations for procedures like spaying</li>
+                	<li><strong>Grade 5:</strong> Very loud murmur</li>
+                	<li><strong>Grade 6:</strong> Extremely loud murmur that can be felt as vibration</li>
+            	</ul>
+           	 
+            	<h3 style="color: #3b82f6; margin: 30px 0 20px 0;">Enlarged Heart (Cardiomegaly)</h3>
+            	<p>An enlarged heart often accompanies heart murmurs and occurs when the heart muscle thickens or the heart chambers dilate. This can happen when the heart has to work harder due to various conditions. Regular monitoring with echocardiograms helps track any changes.</p>
+           	 
+            	<h3 style="color: #3b82f6; margin: 30px 0 20px 0;">Breeds at Higher Risk</h3>
+            	<p>Small breeds like Chihuahuas (like Bambi) are particularly prone to heart murmurs and enlarged hearts. Other at-risk breeds include Cavalier King Charles Spaniels, Maltese, Pomeranianes, and Yorkshire Terriers.</p>
+        	</div>
+
+        	<div class="emergency-section">
+            	<h3>⚠️ Signs to Monitor With Heart Conditions</h3>
+            	<ul style="margin-left: 20px; color: #dc2626;">
+                	<li>Persistent coughing, especially at night or when lying down</li>
+                	<li>Difficulty breathing or rapid breathing</li>
+                	<li>Decreased exercise tolerance or easily becoming tired</li>
+                	<li>Fainting or collapse episodes</li>
+                	<li>Blue or pale gums</li>
+                	<li>Restlessness or difficulty sleeping</li>
+                	<li>Loss of appetite</li>
+                	<li>Swollen abdomen</li>
+            	</ul>
+            	<p style="margin-top: 15px; font-weight: bold;">Any worsening of these symptoms warrants immediate veterinary attention!</p>
+        	</div>
+
+        	<div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 30px; border-radius: 15px; margin: 40px 0; border-left: 4px solid #16a34a;">
+            	<h3 style="color: #15803d; margin-bottom: 15px;">💚 Living Well With Heart Conditions</h3>
+            	<ul style="margin-left: 20px; color: #166534;">
+                	<li>Regular veterinary checkups and echocardiograms to monitor progression</li>
+                	<li>Maintain a heart-healthy diet (often low-sodium)</li>
+                	<li>Moderate exercise as recommended by your vet</li>
+                	<li>Weight management to reduce strain on the heart</li>
+                	<li>Medication compliance if prescribed</li>
+                	<li>Monitor for changes in breathing, appetite, or energy levels</li>
+                	<li>Consider the risks and benefits of procedures like spaying/neutering with your vet</li>
+            	</ul>
+            	<p style="margin-top: 15px; font-style: italic; color: #166534;">Remember: Many dogs with heart murmurs and enlarged hearts live happy, fulfilling lives with proper care and monitoring!</p>
+        	</div>
+
+        	<div style="background: rgba(59, 130, 246, 0.1); padding: 25px; border-radius: 15px; margin: 30px 0; border-left: 4px solid #3b82f6;">
+            	<h3 style="color: #1d4ed8; margin-bottom: 15px;">💙 Bambi's Heart Journey</h3>
+            	<p style="color: #1e40af;">Bambi's 4/5 heart murmur meant that spaying carried increased risks, which led to the difficult decision that ultimately resulted in her pyometra emergency. Every heart condition is unique, and what's right for one dog may not be right for another. Work closely with your veterinarian to make the best decisions for your pet's individual situation.</p>
+        	</div>
+    	</div>
+
+    	<!-- Support Page -->
+    	<div id="support" class="page">
+        	<h2 style="color: #7c3aed; font-size: 2.5em; text-align: center; margin-bottom: 30px;">💜 Support Our Mission</h2>
+       	 
+        	<div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); padding: 40px; border-radius: 20px; margin: 30px 0; border-left: 5px solid #8b5cf6; text-align: center;">
+            	<h3 style="color: #7c3aed; font-size: 2em; margin-bottom: 25px;">Help Us Help More Pet Families</h3>
+            	<p style="color: #6b46c1; font-size: 1.2em; margin-bottom: 25px; line-height: 1.6;">If Bambi's story and these resources have helped you, consider supporting our efforts to help more pet families navigate these challenging experiences. Your support means the world to us and enables us to continue this important work.</p>
+        	</div>
+
+        	<div style="background: white; padding: 40px; border-radius: 20px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+            	<h3 style="color: #7c3aed; margin-bottom: 25px; font-size: 1.8em;">🎯 Our Commitment to You</h3>
+            	<p style="font-size: 1.1em; margin-bottom: 20px; line-height: 1.7;">All resources will be available for free as long as this site is up. We believe that access to helpful information shouldn't be limited by financial constraints, especially during already stressful times.</p>
+           	 
+            	<p style="font-size: 1.1em; margin-bottom: 30px; line-height: 1.7;">However, your support helps us continue developing and sharing these tools, creating new resources, and maintaining the website so it remains accessible to families who need it most.</p>
+
+            	<div style="background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); padding: 25px; border-radius: 15px; margin: 25px 0; border-left: 4px solid #dc2626;">
+                	<h4 style="color: #dc2626; margin-bottom: 15px;">💸 Our Experience:</h4>
+                	<p style="color: #991b1b; margin-bottom: 15px;">Bambi's operation and care totaled around <strong>$17,000</strong>. We had preventative care through a large pet hospital, which is not the same as insurance, and we learned this the hard way. We hope guides and resources like this would help others avoid the financial shock and stress we experienced.</p>
+                	<p style="color: #991b1b;"><strong>Fund Allocation (as of May 2025):</strong> Funds will initially go towards Bambi's ongoing recovery and care, then directly towards maintaining this site and keeping resources free. Our goal is to expand and hopefully turn Hearty Hua Hua into a fund and resource for other dogs suffering from pyometra and heart conditions as Bambi did. Fund allocations after Bambi's recovery will be posted on this site as they come in.</p>
+            	</div>
+
+            	<div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 25px; border-radius: 15px; margin: 25px 0; border-left: 4px solid #0ea5e9;">
+                	<h4 style="color: #0369a1; margin-bottom: 15px;">💙 How Your Support Helps:</h4>
+                	<ul style="margin-left: 20px; color: #0c4a6e;">
+                    	<li>Support Bambi's ongoing recovery and care</li>
+                    	<li>Develop new educational resources and templates</li>
+                    	<li>Research and vet additional pet insurance and care options</li>
+                    	<li>Maintain and improve the website functionality</li>
+                    	<li>Create more comprehensive guides for different conditions</li>
+                    	<li>Support other pet families through difficult times</li>
+                    	<li>Keep all resources completely free and accessible</li>
+                    	<li>Expand into a broader fund for dogs with similar conditions</li>
+                	</ul>
+            	</div>
+
+            	<h3 style="color: #7c3aed; margin: 40px 0 25px 0; font-size: 1.8em;">❤️ Every Contribution Matters</h3>
+            	<p style="font-size: 1.1em; margin-bottom: 20px; line-height: 1.7;">Whether it's $5 or $50, every contribution helps us develop more resources and support other pet families during their most challenging moments. Your generosity allows us to turn our difficult experience with Hearty Hua Hua into something that can help others.</p>
+
+            	<p style="font-size: 1.1em; margin-bottom: 30px; line-height: 1.7;">We know firsthand how overwhelming and expensive pet emergencies can be. That's why keeping these resources free is so important to us, and why your support makes such a meaningful difference.</p>
+
+            	<div style="text-align: center; margin: 40px 0;">
+                	<a href="https://www.paypal.com/donate/?business=YOUR_PAYPAL_EMAIL&no_recurring=0&currency_code=USD" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); color: white; text-decoration: none; padding: 15px 40px; border-radius: 30px; font-size: 1.2em; font-weight: bold; box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 35px rgba(139, 92, 246, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(139, 92, 246, 0.3)'">💖 Support Our Mission</a>
+                	<p style="font-size: 0.9em; color: #6b46c1; margin-top: 15px; font-style: italic;">Thank you for helping us help others 🐾</p>
+            	</div>
+        	</div>
+
+        	<div style="background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); padding: 30px; border-radius: 15px; margin: 40px 0; border-left: 4px solid #dc2626;">
+            	<h3 style="color: #dc2626; margin-bottom: 20px;">🐾 From Our Hearts to Yours</h3>
+            	<p style="color: #991b1b; font-size: 1.1em; line-height: 1.7; font-style: italic;">Bambi's emergency was one of the scariest experiences of our lives, but it also showed us the importance of having resources and support when you need them most. If this website has helped even one family feel more prepared or less alone during their pet's health journey, then sharing our story has been worth it.</p>
+            	<p style="color: #991b1b; font-size: 1.1em; line-height: 1.7; margin-top: 15px;">Your support helps us continue Hearty Hua Hua's legacy of bringing comfort and help to other families facing similar challenges.</p>
+        	</div>
+    	</div>
+
+    	<div class="bottom-banner">
+        	<p>Made with 💖 for Bambi and all the brave little hearts out there</p>
+        	<p style="margin-top: 10px; font-size: 0.9em;">Always consult with your veterinarian for professional medical advice</p>
+    	</div>
+	</div>
+
+	<script>
+    	function showPage(pageId) {
+        	// Hide all pages
+        	const pages = document.querySelectorAll('.page');
+        	pages.forEach(page => {
+            	page.classList.remove('active');
+        	});
+       	 
+        	// Remove active class from all nav buttons
+        	const navBtns = document.querySelectorAll('.nav-btn');
+        	navBtns.forEach(btn => {
+            	btn.classList.remove('active');
+        	});
+       	 
+        	// Show selected page
+        	document.getElementById(pageId).classList.add('active');
+       	 
+        	// Set appropriate nav button as active
+        	if (pageId === 'about') {
+            	document.querySelector('.about-btn').classList.add('active');
+        	} else if (pageId === 'support') {
+            	document.querySelector('.support-btn').classList.add('active');
+        	} else {
+            	document.querySelector('.resources-btn').classList.add('active');
+        	}
+    	}
+	</script>
 </body>
 </html>
